@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <p id="name" style="font-weight:bold"></p>
-    <p id="city" style="font-weight:bold"></p>
-    <p id="mobile" style="font-weight:bold"></p>
-    <p id="age" style="font-weight:bold"></p>
+    <div>
+        <p>Tên</p><input type="text" id="nhapTen">
+        <p>DOB</p><input type="text" id="nhapNamSinh">
+        <p>Điểm toán</p><input type="number" id="nhapDiemToan">
+        <p>Điểm lý</p><input type="number" id="nhapDiemLy">
+        <p>Điểm hóa</p><input type="number" id="nhapDiemHoa">
 
-    <button id="hien">Nút</button>
-    <div><p id="message" style="display:none;">Đây là thông tin sẽ hiện khi ấn "Nút"</p></div>
+        <br>
+        <br>
 
+        <button id="nutNhap" onclick="addRow()">Nhập</button>
+        <button id="nutTinhDiem" onclick="diemTB()">Tính điểm trung bình</button>
+        <button id="nutXacDinhHocLuc" onclick="xepLoai()">Xác định học lực</button>
+    </div>
 
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Ngày tháng năm sinh</th>
+                <th>Điểm toán</th>
+                <th>Điểm lý</th>
+                <th>Điểm hóa</th>
+                <th>Điểm trung bình</th>
+                <th>Học lực</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
 
     <script src="main.js"></script>
 </body>
+
 </html>
