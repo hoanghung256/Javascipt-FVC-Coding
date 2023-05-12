@@ -67,11 +67,9 @@ function diemTB() {
 }
 
 function xepLoai() {
-    // truyền nội dung biến vào các ô có id tương ứng
     var tB = document.getElementById("diemTrungBinh1");
     var hLuc = document.getElementById("hocLuc1");
 
-    // rẽ nhánh phân loại học lực
    if (tB > 9 && tB <= 10) {
         hLuc.innerHTML = "Xuất sắc";
     } else if (tB > 8 && tB <= 9) {
