@@ -67,24 +67,27 @@ function diemTB() {
 }
 
 function xepLoai() {
-    var tB = document.getElementById("diemTrungBinh1");
-    var hLuc = document.getElementById("hocLuc1");
+    for (var i = 1; i < index; i++) {
+        var tB = document.getElementById("diemTrungBinh" + i);
+        var hLuc = document.getElementById("hocLuc" + i);
 
-   if (tB > 9 && tB <= 10) {
-        hLuc.innerHTML = "Xuất sắc";
-    } else if (tB > 8 && tB <= 9) {
-        hLuc.innerHTML = "Giỏi";
-    } else if (tB > 7 && tB <= 8) {
-        hLuc.innerHTML = "Khá";
-    } else if (tB > 5 && tB <= 7) {
-        hLuc.innerHTML = "Trung bình"; 
-    } else if (tB > 4 && tB <= 5) {
-        hLuc.innerHTML = "Yếu"; 
-    } else if (tB > 0 && tB <= 4) {
-        hLuc.innerHTML = "Kém"; 
-    }  
+        if (tB.innerHTML > 9 && tB.innerHTML <= 10) {
+            hLuc.innerHTML = "Xuất sắc";
+        } else if (tB.innerHTML > 8 && tB.innerHTML <= 9) {
+            hLuc.innerHTML = "Giỏi";
+        } else if (tB.innerHTML > 7 && tB.innerHTML <= 8) {
+            hLuc.innerHTML = "Khá";
+        } else if (tB.innerHTML > 5 && tB.innerHTML <= 7) {
+            hLuc.innerHTML = "Trung bình";
+        } else if (tB.innerHTML > 4 && tB.innerHTML <= 5) {
+            hLuc.innerHTML = "Yếu";
+        } else if (tB.innerHTML > 0 && tB.innerHTML <= 4) {
+            hLuc.innerHTML = "Kém";
+        }
+    }
 
 }
+
 
 
 
