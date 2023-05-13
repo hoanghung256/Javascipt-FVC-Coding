@@ -1,11 +1,13 @@
 var index = 1;
 
 function addRow() {
+    /**biến tbody dùng để truyền nội dung vào thẻ html id body */
+    var tbody = document.getElementById("tbody"); 
+    /** tạo 1 hàng mới */
+    var trAo = document.createElement("tr");
 
-    var tbody = document.getElementById("tbody"); // biến tbody dùng để truyền nội dung vào thẻ html id body
-    var trAo = document.createElement("tr");// biến trAo dùng để tạo 1 hàng mới
-
-    tbody.append(trAo); // chèn nội dung biến trAo vào biến tbody
+    
+    tbody.append(trAo); 
     trAo.id = index;
 
     //  tạo hàng, truyền nội dung biến vào các ô
@@ -46,8 +48,9 @@ function addRow() {
 
 }
 
+/**hàm tính điểm trung bình dựa vào các ô điểm */
 function diemTB() {
-    //      vòng lặp chạy dựa theo id các ô 
+    
     for (var i = 1; i < index; i++) {
         //  các biến sẽ truyền giá trị vào các thẻ có id tương úng
         var dToan = document.getElementById("diemToan" + i);
@@ -66,6 +69,9 @@ function diemTB() {
     }
 }
 
+/**
+ * Hàm xếp loại học lực dựa vào điểm trung bình tương ứng
+ */
 function xepLoai() {
     for (var i = 1; i < index; i++) {
         var tB = document.getElementById("diemTrungBinh" + i);
