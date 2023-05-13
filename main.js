@@ -1,35 +1,26 @@
 var index = 1;
 
 function addRow() {
-    /**biến tbody dùng để truyền nội dung vào thẻ html id body */
-    var tbody = document.getElementById("tbody"); 
-    /** tạo 1 hàng mới */
-    var trAo = document.createElement("tr");
+    /**lưu phần tử DOM tạo 1 hàng mới 
+     * đồng thời gán id 
+     */
+    var trAo = $("<tr></tr>").attr("id", index);
+    $("#tbody").append(trAo);
 
-    
-    tbody.append(trAo); 
-    trAo.id = index;
+    // truy xuất DOM, lưu vào các biến
+    var tdHoten = $("<td></td>");
+    var tdNgaySinh = $("<td></td>");
+    //                             method .attr() dùng đề tịnh tiến id qua từng hàng                                     
+    var tdDiemToan = $("<td></td>").attr("id", "diemToan" + index);
+    var tdDiemLy = $("<td></td>").attr("id", "diemLy" + index);
+    var tdDiemHoa = $("<td></td>").attr("id", "diemHoa" + index);
+    var tdDiemTrungBinh = $("<td></td>").attr("id", "diemTrungBinh" + index);
+    var tdHocLuc = $("<td></td>").attr("id", "hocLuc" + index);
 
-    //  tạo hàng, truyền nội dung biến vào các ô
-    var tdHoTen = document.createElement("td");
-    var tdNgaySinh = document.createElement("td");
-    var tdDiemToan = document.createElement("td");
-    var tdDiemLy = document.createElement("td");
-    var tdDiemHoa = document.createElement("td");
-    var tdDiemTrungBinh = document.createElement("td");
-    var tdHocLuc = document.createElement("td");
+    index++;
 
-    //      id các ô sẽ được tăng dần theo từng hàng
-    tdDiemToan.id = "diemToan" + index;
-    tdDiemLy.id = "diemLy" + index;
-    tdDiemHoa.id = "diemHoa" + index;
-    tdDiemTrungBinh.id = "diemTrungBinh" + index;
-    tdHocLuc.id = "hocLuc" + index;
-
-    index = index + 1;
-
-    //      chèn nội dung vào trAo
-    trAo.append(tdHoTen);
+    //  gán nội dung bằng append
+    trAo.append(tdHoten);
     trAo.append(tdNgaySinh);
     trAo.append(tdDiemToan);
     trAo.append(tdDiemLy);
@@ -37,67 +28,57 @@ function addRow() {
     trAo.append(tdDiemTrungBinh);
     trAo.append(tdHocLuc);
 
-    //  lấy giá trị từ input bằng value 
-    //  và truyền vào các biến td rồi in ra màn hình
-    tdHoTen.innerHTML = nhapTen.value;
-    tdNgaySinh.innerHTML = nhapNamSinh.value;
-    tdDiemToan.innerHTML = nhapDiemToan.value;
-    tdDiemLy.innerHTML = nhapDiemLy.value;
-    tdDiemHoa.innerHTML = nhapDiemHoa.value;
-
-
+    //lấy giá trị từ input bằng val() và đưa ra màn hình
+    tdHoten.html($("#nhapTen").val());
+    tdNgaySinh.html($("#nhapNamSinh").val());
+    tdDiemToan.html($("#nhapDiemToan").val());
+    tdDiemLy.html($("#nhapDiemLy").val());
+    tdDiemHoa.html($("#nhapDiemHoa").val());
 }
 
-/**hàm tính điểm trung bình dựa vào các ô điểm */
 function diemTB() {
-    
+
     for (var i = 1; i < index; i++) {
-        //  các biến sẽ truyền giá trị vào các thẻ có id tương úng
-        var dToan = document.getElementById("diemToan" + i);
-        var dLy = document.getElementById("diemLy" + i);
-        var dHoa = document.getElementById("diemHoa" + i);
-        var dTB = document.getElementById("diemTrungBinh" + i);
+        // gán giá trị trong bảng cho biến bằng html()
+        // chuyển kiểu dữ liệu của DOM truy xuất bằng id thành kiểu số nguyên bằng parseInt()
+        var dToan = parseInt($("#diemToan" + i).html());
+        var dLy = parseInt($("#diemLy" + i).html());
+        var dHoa = parseInt($("#diemHoa" + i).html());
+        var dTB = parseInt($("#diemTrungBinh" + i).html());
+        
+        dTB = (dToan +dLy +dHoa)/3;
 
-        console.log(dToan.innerHTML);
-        console.log(dLy.innerHTML);
-        console.log(dHoa.innerHTML);
-
-        //  lúc này kiểu dữ liệu các biến khi in ra màn hình đang là string
-        //  dùng 2 lần dấu - để chuyển string thành kiểu number
-        dTB.innerHTML = (dToan.innerHTML - (-dLy.innerHTML) - (-dHoa.innerHTML)) / 3;
-        console.log(dTB.innerHTML);
-    }
-}
-
-/**
- * Hàm xếp loại học lực dựa vào điểm trung bình tương ứng
- */
-function xepLoai() {
-    for (var i = 1; i < index; i++) {
-        var tB = document.getElementById("diemTrungBinh" + i);
-        var hLuc = document.getElementById("hocLuc" + i);
-
-        if (tB.innerHTML > 9 && tB.innerHTML <= 10) {
-            hLuc.innerHTML = "Xuất sắc";
-        } else if (tB.innerHTML > 8 && tB.innerHTML <= 9) {
-            hLuc.innerHTML = "Giỏi";
-        } else if (tB.innerHTML > 7 && tB.innerHTML <= 8) {
-            hLuc.innerHTML = "Khá";
-        } else if (tB.innerHTML > 5 && tB.innerHTML <= 7) {
-            hLuc.innerHTML = "Trung bình";
-        } else if (tB.innerHTML > 4 && tB.innerHTML <= 5) {
-            hLuc.innerHTML = "Yếu";
-        } else if (tB.innerHTML > 0 && tB.innerHTML <= 4) {
-            hLuc.innerHTML = "Kém";
+        //  if else check xem dTB có phải là số chiwa hết cho 2
+        if (dTB % 2 == 0) { //  nếu chia hết cho 2 in dTB ra DOM đã truy xuất
+            $("#diemTrungBinh" + i).html(dTB);
+        } else { // nếu không, dùng method .toFixed() với hệ số 2 để làm tròn đến số thập phân thứ 2
+            $("#diemTrungBinh" + i).html(dTB.toFixed(2));
         }
-    }
-
+    }   
 }
 
-
-
-
-
+function xepLoai() {
+    //  vòng lặp xếp học lực dựa vào điểm tb của các ô (khi id ô điểm tb tăng lên vòng lặp sẽ chạy lại)
+    for (var i = 1; i < index; i++) {
+        var tB = $("#diemTrungBinh" + i);
+        var hLuc = $("#hocLuc" + i);
+        
+        //  if else check mức học lực
+        if (tB.html() > 9 && tB.html() <= 10) {
+            hLuc.html("Xuất sắc");
+          } else if (tB.html() > 8 && tB.html() <= 9) {
+            hLuc.html("Giỏi");
+          } else if (tB.html() > 7 && tB.html() <= 8) {
+            hLuc.html("Khá");
+          } else if (tB.html() > 5 && tB.html() <= 7) {
+            hLuc.html("Trung bình");
+          } else if (tB.html() > 4 && tB.html() <= 5) {
+            hLuc.html("Yếu");
+          } else if (tB.html() > 0 && tB.html() <= 4) {
+            hLuc.html("Kém");
+          }
+    }
+}
 
 
 
