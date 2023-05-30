@@ -1,9 +1,51 @@
-table, th, td{
-    border: 1px solid;
+*{
+    margin: 0;
+    padding: 0;
 }
 
-table{
-    width: 100%;
-    border-collapse: collapse;
+.side-bar{
+    padding: 5px;
 }
+
+.bar{
+    border: 1px solid;
+    border-radius: 30px;
+}
+
+.header{
+    text-align: center;
+}
+
+.sidebar-body{
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+.sidebar-body ul{
+    list-style: none;
+}
+
+.sidebar-body ul li{
+    padding: 20px;
+}
+
+.form{
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+#staffs div {
+    border: 1px solid;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 20px;
+    width: 150px;
+}
+
+#staffs img{
+    width: 110px;;
+}
+
+
 
