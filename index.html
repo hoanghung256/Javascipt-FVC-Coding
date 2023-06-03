@@ -16,53 +16,76 @@
 
     <div clas="body-container p-3" style="display: flex;">
         <div class="side-bar col-md-2 col-sm-3">
-            <div class="bar">
-                <div class="header">
-                    <p>SIDE BAR</p>
-                </div>
+            <div>
+                    <div class="bar">
+                        <div class="header">
+                            <p>SIDE BAR</p>
+                        </div>
 
-                <hr>
+                        <hr>
+
+                        <div class="sidebar-body">
+                            <nav>
+                                <ul>
+                                    <li><button onclick="staffsList()">Staff list</button></li>
+                                    <li>
+                                        <button onclick="showDepartments()">Departments</button>
+                                        <ul id="deptList" style="display: none;">
+                                            <li><button>Sale Department</button></li>
+                                            <li><button>HR Department</button></li>
+                                            <li><button>Marketing Department</button></li>
+                                            <li><button>IT Department</button></li>
+                                            <li><button>Finance Department</button></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><button>Salary table</button></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 
-                <div class="sidebar-body">
-                    <nav>
-                        <ul>
-                            <li><button onclick="staffsList()">Staff list</button></li>
-                            <li><button>Staffs by department</button></li>
-                            <li><button>Salary table</button></li>
-                        </ul>
-                    </nav>
+
+
+                <div class="form p-3">
+                    <div>
+                        <p>Staff ID:</p>
+                        <input type="text" name="id">
+                    </div>
+
+                    <div>
+                        <p>Name:</p>
+                        <input type="text" name="name">
+                    </div>
+
+                    <div>
+                        <p>DOB:</p>
+                        <input type="text" name="doB">
+                    </div>
+
+                    <div>
+                        <p>Department ID:</p>
+                        <input type="text" name="departmentId">
+                    </div>
+
+                    <div class="p-3">
+                        <button id="add" onclick="addStaff()">Add new staff</button>
+                    </div>
+
+                    <div class="p-3">
+                        <button id="update" onclick="updateInfor()">Update information</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="form p-3">
-                <div>
-                    <label>Name:</label>
-                    <input type="text" name="name">
-                </div>
-
-                <div>
-                    <label>DOB:</label>
-                    <input type="text" name="doB">
-                </div>
-
-                <div>
-                    <label>Department ID:</label>
-                    <input type="text" name="departmentId">
-                </div>
-
-                <div>
-                    <button id="add">Add new staff</button>
-                </div>
-
-                <div>
-                    <button id="update">Update information</button>
-                </div>
-            </div>
         </div>
 
         <div class="staffs-list col-md-10 col-sm-9">
             <h1>Staff list</h1>
-            <div id="staffs" style="padding:30px;"></div>
+            <div>
+                <div id="staffs"></div>
+            </div>
+
         </div>
     </div>
 

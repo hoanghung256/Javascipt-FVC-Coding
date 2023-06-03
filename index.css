@@ -35,12 +35,16 @@
     padding: 20px;
 }
 
-#staffs div {
+#staffs .staff-div {
     border: 1px solid;
     border-radius: 10px;
     display: inline-block;
     padding: 20px;
     width: 150px;
+}
+
+#staffs .detail-button , .delete-button{
+    padding:5px;
 }
 
 #staffs img{
